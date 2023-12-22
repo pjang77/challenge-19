@@ -1,25 +1,26 @@
 {
-  "name": "JATE",
+  "name": "jate-root",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Root package for Just Another Text Editor (JATE) application",
+  "main": "index.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start": "node server/server.js",
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install"
   },
-  "keywords": [],
+  "keywords": ["text-editor", "pwa", "offline"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "concurrently": "^5.2.0"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
   }
 }
